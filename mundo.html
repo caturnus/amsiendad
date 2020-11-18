@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>templo de cheemz y dibujitos</title>
+    <script src=" https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    
+   
+    
+</head>
+
+ <!--  LIBRERIAS DE COLISION Y FÍSICAS-->
+
+ <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+ 
+ <!--MOVIMIENTO DE CÁMARA-->
+ <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+ <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+
+<body>
+    <a-scene>
+      <a-scene physics="gravity:0; debug:true" >
+
+        <a-entity id="rig" movement-controls kinematic-body>
+          <a-entity id="camera" camera position="0 10 60" look-controls></a-entity>
+        </a-entity>
+
+        <a-assets>
+         
+          <a-asset-item id="perro" src="./assets/perro-ahora.gltf"></a-asset-item>
+          <a-asset-item id="mountain" src="./assets/crystal_mountain.gltf"></a-asset-item>
+        <a-asset-item id="selva" src=./Texturas/textura_i.jpg></a-asset-item>
+        <a-asset-item id="ambiente" src=./Texturas/textura_ii.jpg></a-asset-item>
+        <a-asset-item id="ambiente2" src=./Texturas/textura_ii_reflejo.jpg></a-asset-item>
+        <a-asset-item id="ambiente3" src=./Texturas/textura_iii.jpg></a-asset-item>
+        <a-asset-item id="ambiente4" src=./Texturas/textura_iv.jpg></a-asset-item>
+        <a-asset-item id="ambiente5" src=./Texturas/textura_v.jpg></a-asset-item>
+        <a-asset-item id="amarillo" src=./Texturas/amarillo.jpg></a-asset-item>        
+        <a-asset-item id="verde" src=./Texturas/verde.jpg></a-asset-item>   
+        <a-asset-item id="fucsia" src=./Texturas/fucsia.jpg></a-asset-item>   
+          </a-assets>
+      
+<!-- OBJETOS -->
+
+<a-entity gltf-model="#perro" scale="1 1 1" position= "0 0 0" animation="property: position; dur: 20000; easing: linear; to: -3.2 8.5 4 ; loop:1"></a-entity>
+<a-entity gltf-model="#mountain" scale="5.5 5.5 5.5" position="0 0 0" shadow="cast: true; receive:true"></a-entity>
+
+
+<!-- BACKGROUND -->
+
+<a-sky color="black"></a-sky>
+
+
+        <!-- ORBITA -->
+        
+        <a-scene>
+         
+
+          <a-entity
+        id="rotatingsphere"
+        position="0 0 0"
+        light="castShadow:  true "
+        animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 5000; loop: true; easing: linear"
+      ><a-sphere position="1 19.6 1" radius="0.25" src="#amarillo" shader="flat"></a-sphere> 
+              </a-entity> 
+                     
+              <a-entity
+              id="rotatingcone"
+              position="0 0 0"
+              animation="property: rotation; from: 0 0 0; to: 0 -360 0; dur: 5000; loop: true; easing: linear"
+              light="castShadow:  true " 
+              ><a-cone position="-2 19.6 2" src="#fucsia" rotation="55" shader="flat"></a-cone>
+            </a-entity>
+                     
+            <a-entity
+              id="rotatingring"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 5000; loop: true; easing: linear"
+            ><a-ring position= "3 19.6 3" src="#verde" radius-inner="0.25" radius-outer="0.50" shader="flat"></a-ring>
+                 </a-entity>                  
+                  
+                 <a-entity
+              id="rotatingtorusknot"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 -360 0; dur: 5000; loop: true; easing: linear"
+                 ><a-torus-knot position="-4 19.6 -4" radius-tubular="0.25" radius="0.5" p=2 q=7 src="#amarillo" shader="flat"></a-torus-knot>
+                </a-entity>                
+                  
+                <a-entity
+              id="rotatingoctahedron"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 5000; loop: true; easing: linear"
+                ><a-octahedron position="-5 19.6 5" radius= 1 src="#fucsia" shader="flat"></a-octahedron>
+              </a-entity>                 
+                 
+              <a-entity
+              id="rotatingtriangle"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 -360 0; dur: 5000; loop: true; easing: linear"
+              ><a-triangle position="6 19.6 -6" src="#verde" rotation="60" shader="flat"></a-triangle>
+                  </a-entity>               
+                 
+                  <a-entity
+                  id="rotatingcylinder"
+                  position="0 0 0"
+                  light="castShadow:  true "
+                  animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 5000; loop: true; easing: linear"
+                  ><a-cylinder position= "7 19.6 7" src="#amarillo" rotation="120" shader="flat"></a-cylinder>
+                  </a-entity>
+                      
+                  <a-entity
+              id="rotatingdodecahedron"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 -360 0; dur: 5000; loop: true; easing: linear"
+                  ><a-dodecahedron position="-8 19.6 -8" src="#fucsia" rotation="75" shader="flat"></a-dodecahedron>
+                   </a-entity>                
+                  
+                   <a-entity
+              id="rotatingplane"
+              position="0 0 0"
+              light="castShadow:  true "
+              animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 5000; loop: true; easing: linear"
+                   ><a-plane position="-9 19.6 9" rotation="35" src="#verde" shader="flat"></a-plane>
+</a-entity>
+
+          
+
+
+          <!-- Bloques -->
+
+            <a-plane scale="51.120 50 50" position="0 25 -19.05" src="#selva" shader="flat"></a-plane>
+            <a-plane scale="37.950 50 50" position="25.590 25 0.110" src="#ambiente" rotation="0 -90 0" shader="flat"></a-plane>
+            <a-plane scale="37.950 50 50" position="-25.590 25 0.110" src="#ambiente2" rotation="0 90 0" shader="flat"></a-plane>
+            <a-plane scale="50.870 38.420 50.050" position="0 50 0.250" rotation="90 0 0"src="#ambiente3" shader="flat"></a-plane>
+      
+              
+       
+          </a-scene>
+
+
+        
+
+        </a-scene>
+
+      </a-scene>
+</body>
+</html>
